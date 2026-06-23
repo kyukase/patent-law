@@ -1,0 +1,744 @@
+<style>
+/* ─── THEME VARIABLES ─── */
+#swo {
+  --bg:#0D0D16; --bg-card:#161622; --bg-card2:#1E1E2E;
+  --border:rgba(255,255,255,.09);
+  --tx:#E0DDEF; --tx2:#8E8AAD; --tx3:#4E4A66;
+  --c-m:#9D94F5; --c-m-bg:rgba(120,108,240,.13); --c-m-bd:rgba(157,148,245,.28);
+  --c-j:#4DD4A8; --c-j-bg:rgba(29,158,117,.13);  --c-j-bd:rgba(77,212,168,.28);
+  --c-g:#F5C842; --c-g-bg:rgba(245,200,66,.11);  --c-g-bd:rgba(245,200,66,.28);
+  --c-t:#F07070; --c-t-bg:rgba(192,57,43,.13);   --c-t-bd:rgba(240,112,112,.28);
+  --c-atty:#F5C842; --c-atty-bg:rgba(245,200,66,.07); --c-atty-bd:rgba(245,200,66,.22);
+  --c-sil:#6DBF6A; --c-sil-bg:rgba(109,191,106,.07); --c-sil-bd:rgba(109,191,106,.22);
+  --choice-bg:#161622; --choice-bd:rgba(255,255,255,.11); --choice-hover:rgba(157,148,245,.11);
+  --dot:rgba(255,255,255,.035);
+  --glow-l:rgba(107,95,216,.09); --glow-r:rgba(107,95,216,.09);
+  --sb-bg:#1E1E2E; --sb-border:rgba(255,255,255,.07);
+  --sb-active-bg:rgba(120,108,240,.18); --sb-active-bd:rgba(157,148,245,.35);
+  --sb-part:#4E4A66;
+}
+#swo.tl {
+  --bg:#F2F0FB; --bg-card:#FFFFFF; --bg-card2:#EDEAFB;
+  --border:rgba(0,0,0,.09); --tx:#18162E; --tx2:#5A5878; --tx3:#A09ABE;
+  --c-m:#5248CC; --c-m-bg:rgba(82,72,204,.07); --c-m-bd:rgba(82,72,204,.22);
+  --c-j:#0C7A5A; --c-j-bg:rgba(12,122,90,.07); --c-j-bd:rgba(12,122,90,.22);
+  --c-g:#9A6E00; --c-g-bg:rgba(154,110,0,.07); --c-g-bd:rgba(154,110,0,.22);
+  --c-t:#C0392B; --c-t-bg:rgba(192,57,43,.06); --c-t-bd:rgba(192,57,43,.22);
+  --c-atty:#9A6E00; --c-atty-bg:rgba(154,110,0,.06); --c-atty-bd:rgba(154,110,0,.25);
+  --c-sil:#3A8A38; --c-sil-bg:rgba(58,138,56,.06); --c-sil-bd:rgba(58,138,56,.25);
+  --choice-bg:#FFFFFF; --choice-bd:rgba(82,72,204,.22); --choice-hover:rgba(82,72,204,.06);
+  --dot:rgba(0,0,0,.03); --glow-l:rgba(82,72,204,.05); --glow-r:rgba(82,72,204,.05);
+  --sb-bg:#F0EEF9; --sb-border:rgba(0,0,0,.08);
+  --sb-active-bg:rgba(82,72,204,.1); --sb-active-bd:rgba(82,72,204,.3);
+  --sb-part:#A09ABE;
+}
+#swo.ts {
+  --bg:#16110A; --bg-card:#1E180E; --bg-card2:#261E12;
+  --border:rgba(255,220,150,.1); --tx:#EDE0C0; --tx2:#A09068; --tx3:#6A5A3A;
+  --c-m:#C4A8F0; --c-m-bg:rgba(196,168,240,.12); --c-m-bd:rgba(196,168,240,.25);
+  --c-j:#70D4A0; --c-j-bg:rgba(112,212,160,.12); --c-j-bd:rgba(112,212,160,.25);
+  --c-g:#F5C842; --c-g-bg:rgba(245,200,66,.12); --c-g-bd:rgba(245,200,66,.28);
+  --c-t:#F07070; --c-t-bg:rgba(240,112,112,.12); --c-t-bd:rgba(240,112,112,.25);
+  --c-atty:#D4A840; --c-atty-bg:rgba(212,168,64,.1); --c-atty-bd:rgba(212,168,64,.28);
+  --c-sil:#80C870; --c-sil-bg:rgba(128,200,112,.1); --c-sil-bd:rgba(128,200,112,.28);
+  --choice-bg:#1E180E; --choice-bd:rgba(255,220,150,.14); --choice-hover:rgba(196,168,240,.1);
+  --dot:rgba(255,220,150,.035); --glow-l:rgba(196,168,240,.07); --glow-r:rgba(196,168,240,.07);
+  --sb-bg:#1E180E; --sb-border:rgba(255,220,150,.1);
+  --sb-active-bg:rgba(196,168,240,.15); --sb-active-bd:rgba(196,168,240,.3);
+  --sb-part:#6A5A3A;
+}
+
+/* ─── OUTER ─── */
+#swo {
+  position:relative; min-height:100%; padding:0;
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 45% 70% at 0% 50%, var(--glow-l) 0%,transparent 100%),
+    radial-gradient(ellipse 45% 70% at 100% 50%,var(--glow-r) 0%,transparent 100%),
+    radial-gradient(circle at 1px 1px,var(--dot) 1px,transparent 0);
+  background-size:auto,auto,22px 22px;
+  transition:background-color .35s,color .35s;
+  font-family:inherit; hyphens:none;
+  display:flex; flex-direction:column;
+}
+
+/* ─── TOP BAR ─── */
+#topbar {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:.75rem 1.5rem;
+  border-bottom:1px solid var(--border);
+  background:var(--bg-card);
+  position:sticky; top:0; z-index:30;
+}
+#topbar-title { font-size:13px; font-weight:700; color:var(--tx2); letter-spacing:.04em; }
+#rdr-anchor { position:relative; }
+#rdr-btn {
+  background:var(--bg-card2); border:1px solid var(--border);
+  color:var(--tx2); font-size:13px; font-weight:700;
+  padding:5px 12px; border-radius:999px; cursor:pointer;
+  letter-spacing:.04em; font-family:inherit; transition:color .2s,border-color .2s;
+}
+#rdr-btn:hover { color:var(--tx); border-color:var(--c-m); }
+#rdr-panel {
+  display:none; position:absolute; top:calc(100% + 10px); right:0;
+  width:230px; background:var(--bg-card); border:1px solid var(--border);
+  border-radius:14px; padding:1rem 1.125rem; box-shadow:0 8px 32px rgba(0,0,0,.4);
+}
+#rdr-panel.open { display:block; }
+.rdr-section { margin-bottom:.85rem; }
+.rdr-section:last-child { margin-bottom:0; }
+.rdr-sec-label { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--tx3); margin-bottom:7px; }
+.rdr-opts { display:flex; gap:6px; }
+.rdr-opt {
+  flex:1; font-size:13px; font-weight:600; padding:5px 0; border-radius:8px;
+  border:1px solid var(--border); background:transparent; color:var(--tx2);
+  cursor:pointer; font-family:inherit; transition:all .15s;
+}
+.rdr-opt:hover { color:var(--tx); border-color:var(--c-m); }
+.rdr-opt.on { background:var(--c-m-bg); border-color:var(--c-m-bd); color:var(--c-m); }
+
+/* ─── LAYOUT: sidebar + content ─── */
+#layout { display:flex; flex:1; min-height:0; }
+
+/* ─── SIDEBAR ─── */
+#sidebar {
+  width:220px; flex-shrink:0;
+  background:var(--sb-bg);
+  border-right:1px solid var(--sb-border);
+  padding:1.25rem .75rem;
+  overflow-y:auto;
+  position:sticky; top:41px;
+  height:calc(100vh - 41px);
+}
+.sb-part {
+  font-size:10px; font-weight:800; text-transform:uppercase;
+  letter-spacing:.1em; color:var(--sb-part);
+  padding:.25rem .5rem; margin-bottom:.35rem; margin-top:.85rem;
+}
+.sb-part:first-child { margin-top:0; }
+.sb-btn {
+  display:block; width:100%; text-align:left;
+  font-size:12.5px; line-height:1.4; padding:.5rem .75rem;
+  border-radius:8px; border:1px solid transparent;
+  background:transparent; color:var(--tx2);
+  cursor:pointer; font-family:inherit;
+  transition:background .12s,color .12s,border-color .12s;
+  margin-bottom:2px;
+}
+.sb-btn:hover { background:var(--bg-card2); color:var(--tx); }
+.sb-btn.active {
+  background:var(--sb-active-bg);
+  border-color:var(--sb-active-bd);
+  color:var(--tx);
+  font-weight:600;
+}
+.sb-btn .sb-num { font-size:10px; color:var(--tx3); display:block; margin-bottom:1px; }
+.sb-btn.active .sb-num { color:var(--c-m); }
+
+/* ─── MAIN CONTENT ─── */
+#main { flex:1; padding:2rem 0 3rem; overflow-y:auto; min-width:0; }
+#swi {
+  max-width:var(--width,640px); margin:0 auto;
+  background:var(--bg-card); border-radius:20px;
+  border:1px solid var(--border);
+  padding:2.25rem 2.5rem 2rem;
+  box-shadow:0 2px 40px rgba(0,0,0,.35);
+  font-size:var(--fz,18px); color:var(--tx); line-height:1.75;
+  transition:max-width .3s,font-size .2s,background .35s;
+}
+
+/* ─── CHAPTERS ─── */
+.chapter { display:none; }
+.chapter.on { display:block; }
+.ch-hd { margin-bottom:1.75rem; padding:1.25rem 1.5rem; border-radius:14px; border:1px solid transparent; }
+.ch-num { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; opacity:.6; margin-bottom:5px; }
+.ch-title { font-size:26px; font-weight:800; line-height:1.2; }
+.hm { background:var(--c-m-bg); border-color:var(--c-m-bd); }
+.hm .ch-num,.hm .ch-title { color:var(--c-m); }
+.hj { background:var(--c-j-bg); border-color:var(--c-j-bd); }
+.hj .ch-num,.hj .ch-title { color:var(--c-j); }
+.hb { background:var(--c-g-bg); border-color:var(--c-g-bd); }
+.hb .ch-num,.hb .ch-title { color:var(--c-g); }
+.ht { background:var(--c-t-bg); border-color:var(--c-t-bd); }
+.ht .ch-num,.ht .ch-title { color:var(--c-t); }
+.cb { color:var(--tx2); margin-bottom:1.5rem; }
+.cb p { margin-bottom:1rem; } .cb p:last-child { margin-bottom:0; }
+
+/* collapsibles */
+.coll { margin-bottom:1.25rem; border-radius:12px; overflow:hidden; border:1px solid var(--c-atty-bd); }
+.coll.sil { border-color:var(--c-sil-bd); }
+.coll-trigger {
+  width:100%; text-align:left; cursor:pointer;
+  display:flex; align-items:center; gap:10px;
+  padding:.85rem 1.125rem; background:var(--c-atty-bg);
+  border:none; font-family:inherit; color:var(--c-atty);
+  font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:.08em;
+  transition:background .15s;
+}
+.coll.sil .coll-trigger { background:var(--c-sil-bg); color:var(--c-sil); }
+.coll-trigger:hover { filter:brightness(1.1); }
+.coll-arrow { display:inline-block; font-size:10px; transition:transform .2s; flex-shrink:0; }
+.coll-trigger.open .coll-arrow { transform:rotate(90deg); }
+.coll-body { display:none; padding:.95rem 1.125rem; font-size:.9em; color:var(--tx2); line-height:1.7; background:var(--bg-card2); }
+.coll-body.open { display:block; }
+.silly-items { display:flex; flex-direction:column; gap:8px; margin-top:.5rem; }
+.silly-item { display:flex; gap:10px; align-items:flex-start; }
+.si-icon { font-size:17px; flex-shrink:0; line-height:1.5; }
+
+/* visuals */
+.vis { border:1px solid var(--border); border-radius:12px; padding:1.25rem 1.5rem; margin-bottom:1.5rem; background:var(--bg-card2); }
+.vl { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--tx3); margin-bottom:1rem; }
+.pr { display:flex; gap:8px; flex-wrap:wrap; }
+.pp { display:inline-flex; align-items:center; gap:6px; padding:7px 15px; border-radius:999px; font-size:14px; font-weight:600; }
+.pp-m { background:var(--c-m-bg); color:var(--c-m); border:1px solid var(--c-m-bd); }
+.pp-j { background:var(--c-j-bg); color:var(--c-j); border:1px solid var(--c-j-bd); }
+.pp-t { background:var(--c-t-bg); color:var(--c-t); border:1px solid var(--c-t-bd); }
+.pp-no { background:var(--bg-card); color:var(--tx3); border:1px solid var(--border); text-decoration:line-through; opacity:.6; }
+.pc-row { display:flex; gap:12px; flex-wrap:wrap; }
+.pc { flex:1; min-width:160px; border:1px solid var(--border); border-radius:10px; padding:.75rem 1rem; background:var(--bg-card); }
+.pc-name { font-size:13px; font-weight:700; margin-bottom:2px; }
+.pc-name.m { color:var(--c-m); } .pc-name.j { color:var(--c-j); }
+.pc-sub { font-size:12px; color:var(--tx3); margin-bottom:6px; }
+.sr { display:flex; flex-direction:column; gap:4px; }
+.sb { font-size:11px; padding:3px 9px; border-radius:999px; font-weight:600; width:fit-content; }
+.sb-y { background:rgba(77,212,168,.15); color:var(--c-j); }
+.sb-n { background:rgba(240,112,112,.12); color:var(--c-t); }
+.tl { display:flex; flex-direction:column; }
+.tli { display:flex; gap:14px; padding-bottom:1rem; }
+.tli:last-child { padding-bottom:0; }
+.tl-dc { display:flex; flex-direction:column; align-items:center; }
+.tl-d { width:11px; height:11px; border-radius:50%; flex-shrink:0; margin-top:5px; }
+.tl-ln { width:1.5px; flex:1; margin-top:5px; background:var(--border); }
+.tli:last-child .tl-ln { display:none; }
+.tl-tx { font-size:.88em; color:var(--tx2); padding-top:2px; line-height:1.6; }
+.tl-tx strong { color:var(--tx); font-weight:600; }
+.d-m { background:var(--c-m); } .d-j { background:var(--c-j); }
+.d-g { background:var(--tx3); } .d-t { background:var(--c-t); }
+.surp,.tbox,.ins { border-radius:10px; padding:.9rem 1.125rem; margin:1rem 0; font-size:.9em; line-height:1.7; }
+.surp { border:1px solid var(--c-g-bd); border-left:3px solid var(--c-g); background:var(--c-g-bg); color:var(--tx2); }
+.surp-lbl { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--c-g); margin-bottom:5px; }
+.tbox { border:1px solid var(--c-t-bd); border-left:3px solid var(--c-t); background:var(--c-t-bg); color:var(--tx2); }
+.tbox-lbl { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--c-t); margin-bottom:5px; }
+.ins { border:1px solid var(--border); background:var(--bg-card2); color:var(--tx2); margin-top:10px; }
+.ins-lbl { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:var(--tx3); margin-bottom:4px; }
+
+/* lawyer + cyoa */
+.lbl { border:1px solid var(--c-m-bd); border-radius:14px; background:var(--c-m-bg); padding:1.125rem 1.375rem; margin-bottom:1.25rem; }
+.lbl.jl { border-color:var(--c-j-bd); background:var(--c-j-bg); }
+.lbl.jl .lb-name { color:var(--c-j); }
+.lb-hdr { display:flex; align-items:center; gap:10px; margin-bottom:.75rem; }
+.lb-av { width:30px; height:30px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:13px; color:var(--bg); font-weight:800; flex-shrink:0; }
+.av-m { background:var(--c-m); } .av-j { background:var(--c-j); }
+.lb-name { font-size:14px; font-weight:700; color:var(--c-m); }
+.lb-role { font-size:12px; color:var(--tx3); }
+.lb-says { font-size:.9em; color:var(--tx2); font-style:italic; margin-bottom:1rem; line-height:1.65; }
+.lb-says strong { font-style:normal; color:var(--tx); }
+.cyoa-lbl { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.09em; color:var(--tx3); margin-bottom:.75rem; }
+.copts { display:flex; flex-direction:column; gap:8px; }
+.cbtn {
+  text-align:left; font-size:.88em; padding:12px 16px;
+  border:1px solid var(--choice-bd); border-radius:10px;
+  background:var(--choice-bg); color:var(--tx); cursor:pointer;
+  font-family:inherit; line-height:1.5;
+  transition:background .12s,border-color .12s,transform .1s;
+}
+.cbtn:hover:not(:disabled) { background:var(--choice-hover); border-color:var(--c-m-bd); transform:translateX(4px); }
+.cbtn.picked { background:var(--c-t-bg); border-color:var(--c-t-bd); color:var(--c-t); font-weight:600; }
+.cbtn.picked-ok { background:var(--c-j-bg); border-color:var(--c-j-bd); color:var(--c-j); font-weight:600; }
+.cbtn.picked-mid { background:var(--c-g-bg); border-color:var(--c-g-bd); color:var(--c-g); font-weight:600; }
+.cbtn:disabled { cursor:default; }
+.oc { display:none; margin-top:1rem; padding:.9rem 1rem; border-radius:10px; border:1px solid var(--border); background:var(--bg-card2); font-size:.88em; color:var(--tx2); line-height:1.65; }
+.oc.ok { border-color:var(--c-j-bd); background:var(--c-j-bg); }
+.oc.mid { border-color:var(--c-g-bd); background:var(--c-g-bg); }
+.oc-tag { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; margin-bottom:5px; color:var(--tx3); }
+.oc.ok .oc-tag { color:var(--c-j); }
+.oc.mid .oc-tag { color:var(--c-g); }
+
+/* continue prompt */
+.continue-prompt {
+  margin-top:1.25rem; padding:1rem 1.25rem; border-radius:12px;
+  border:1px solid var(--c-m-bd); background:var(--c-m-bg);
+  font-size:.88em; color:var(--tx2); line-height:1.6;
+  display:none;
+}
+.continue-prompt.show { display:block; }
+.continue-prompt strong { color:var(--c-m); }
+.cp-btn {
+  margin-top:.75rem; font-size:13px; font-weight:700;
+  padding:8px 18px; border-radius:8px;
+  background:var(--c-m-bg); border:1px solid var(--c-m-bd);
+  color:var(--c-m); cursor:pointer; font-family:inherit;
+  transition:background .12s;
+}
+.cp-btn:hover { background:rgba(157,148,245,.25); }
+
+/* nav */
+.nav { display:flex; align-items:center; justify-content:space-between; padding-top:1.25rem; border-top:1px solid var(--border); margin-top:.25rem; }
+.nav-btns { display:flex; gap:8px; }
+.nav-btn { font-size:14px; padding:9px 20px; border-radius:9px; font-weight:600; cursor:pointer; font-family:inherit; background:var(--bg-card2); border:1px solid var(--border); color:var(--tx2); transition:color .15s,border-color .15s; }
+.nav-btn:hover:not(:disabled) { color:var(--tx); border-color:var(--c-m-bd); }
+.nav-btn:disabled { opacity:.3; cursor:default; }
+.nav-prog { font-size:13px; color:var(--tx3); }
+</style>
+
+<div id="swo" class="tl">
+
+  <!-- TOP BAR -->
+  <div id="topbar">
+    <div id="topbar-title">The Patent Story</div>
+    <div id="rdr-anchor">
+      <button id="rdr-btn" onclick="toggleRdr()">Aa</button>
+      <div id="rdr-panel">
+        <div class="rdr-section">
+          <div class="rdr-sec-label">Theme</div>
+          <div class="rdr-opts">
+            <button class="rdr-opt on" data-grp="theme" data-val="dark" onclick="setTheme('dark')">Dark</button>
+            <button class="rdr-opt" data-grp="theme" data-val="light" onclick="setTheme('light')">Light</button>
+            <button class="rdr-opt" data-grp="theme" data-val="sepia" onclick="setTheme('sepia')">Sepia</button>
+          </div>
+        </div>
+        <div class="rdr-section">
+          <div class="rdr-sec-label">Text size</div>
+          <div class="rdr-opts">
+            <button class="rdr-opt" data-grp="size" data-val="s" onclick="setSize('s')" style="font-size:12px">A</button>
+            <button class="rdr-opt on" data-grp="size" data-val="m" onclick="setSize('m')" style="font-size:15px">A</button>
+            <button class="rdr-opt" data-grp="size" data-val="l" onclick="setSize('l')" style="font-size:19px">A</button>
+          </div>
+        </div>
+        <div class="rdr-section">
+          <div class="rdr-sec-label">Width</div>
+          <div class="rdr-opts">
+            <button class="rdr-opt" data-grp="width" data-val="narrow" onclick="setWidth('narrow')">Narrow</button>
+            <button class="rdr-opt on" data-grp="width" data-val="medium" onclick="setWidth('medium')">Medium</button>
+            <button class="rdr-opt" data-grp="width" data-val="wide" onclick="setWidth('wide')">Wide</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LAYOUT -->
+  <div id="layout">
+
+    <!-- SIDEBAR -->
+    <nav id="sidebar">
+      <div class="sb-part">Part 1 — The Invention</div>
+      <button class="sb-btn active" onclick="goto(0)"><span class="sb-num">Ch 1</span>Old classmates, different instincts</button>
+      <button class="sb-btn" onclick="goto(1)"><span class="sb-num">Ch 2</span>The fence has to be the right size</button>
+      <button class="sb-btn" onclick="goto(2)"><span class="sb-num">Ch 3</span>Business takes off</button>
+
+      <div class="sb-part">Part 2 — The Competition</div>
+      <button class="sb-btn" onclick="goto(3)"><span class="sb-num">Ch 4</span>Jordan sees a gap</button>
+      <button class="sb-btn" onclick="goto(4)"><span class="sb-num">Ch 5</span>The standoff and the deal</button>
+      <button class="sb-btn" onclick="goto(5)"><span class="sb-num">Ch 6</span>The cycle repeats</button>
+
+      <div class="sb-part">Part 3 — The Outside World</div>
+      <button class="sb-btn" onclick="goto(6)"><span class="sb-num">Ch 7</span>Someone Maya has never heard of</button>
+      <button class="sb-btn" onclick="goto(7)"><span class="sb-num">Ch 8</span>What happens next</button>
+    </nav>
+
+    <!-- MAIN -->
+    <div id="main">
+      <div id="swi">
+        <div class="chapters">
+
+          <!-- CH 1 -->
+          <div class="chapter on" id="ch-0">
+            <div class="ch-hd hm"><div class="ch-num">Chapter 1 · Part 1: The Invention</div><div class="ch-title">Old classmates, different instincts</div></div>
+            <div class="cb">
+              <p>Maya and Jordan went to the same high school. They weren't close, but they remembered each other as the kids who always had something going on the side. Maya built things. Jordan watched what other people built and figured out how to improve them.</p>
+              <p>Years later, Maya spent three years developing the HydroBeam — a water bottle that uses UV light to purify water as you drink. When it was ready, she filed for a patent.</p>
+              <p>The USPTO approved it, but with a condition. In exchange for the patent, Maya had to publicly disclose exactly how the technology worked. Every detail becomes public record the moment the patent is granted.</p>
+              <p>That's the trade society makes with inventors: reveal your secrets instead of hoarding them, and you get 20 years of exclusive rights to sell it. Keep the secret, and you're on your own.</p>
+            </div>
+            <div class="vis">
+              <div class="vl">The deal Maya made with the USPTO</div>
+              <div class="tl">
+                <div class="tli"><div class="tl-dc"><div class="tl-d d-m"></div><div class="tl-ln"></div></div><div class="tl-tx"><strong>Maya discloses everything</strong> — how the UV light works, its placement, its cycle timing. Public record, forever.</div></div>
+                <div class="tli"><div class="tl-dc"><div class="tl-d d-g"></div><div class="tl-ln"></div></div><div class="tl-tx"><strong>USPTO grants the patent</strong> — covering any bottle that purifies water through UV light during active use by the consumer.</div></div>
+                <div class="tli"><div class="tl-dc"><div class="tl-d d-m"></div></div><div class="tl-tx"><strong>Maya gets 20 years</strong> — no one can make or sell a UV-purifying water bottle without her permission.</div></div>
+              </div>
+            </div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" disabled>← Back</button><button class="nav-btn" onclick="goto(1)">Next →</button></div><span class="nav-prog">1 of 8</span></div>
+          </div>
+
+          <!-- CH 2 -->
+          <div class="chapter" id="ch-1">
+            <div class="ch-hd hm"><div class="ch-num">Chapter 2 · Part 1: The Invention</div><div class="ch-title">The fence has to be the right size</div></div>
+            <div class="cb">
+              <p>Before Maya filed, she had to decide how broadly to write her patent claim. Too narrow, and competitors walk right around her. Too broad, and the USPTO rejects it. The goal is to claim the category she created — not just her specific product.</p>
+            </div>
+            <div class="coll" id="coll-atty-ch1">
+              <button class="coll-trigger" onclick="toggleColl('coll-atty-ch1')"><span class="coll-arrow">▶</span> ⚖ What the patent attorney actually does here</button>
+              <div class="coll-body">Finding this line is exactly the judgment call a patent attorney is trained to make. Maya knows how her bottle works — but she's not qualified to know where the legal boundary sits between "broad enough to matter" and "so broad it gets rejected." Getting it wrong in either direction costs her the protection she spent three years building.</div>
+            </div>
+            <div class="coll sil" id="coll-sil-ch1">
+              <button class="coll-trigger" onclick="toggleColl('coll-sil-ch1')"><span class="coll-arrow">▶</span> 🎯 What competitors might try</button>
+              <div class="coll-body">
+                <div class="silly-items">
+                  <div class="silly-item"><span class="si-icon">🥛</span><span>A reusable <em>glass</em> with a UV chip. Not technically a "bottle." Does Maya's patent catch it? Depends on how she wrote "vessel."</span></div>
+                  <div class="silly-item"><span class="si-icon">🫖</span><span>A thermos-shaped container. Still not obviously a "bottle." Someone could argue it in court.</span></div>
+                  <div class="silly-item"><span class="si-icon">📐</span><span>Maya could broaden to "cylinder" — but someone sells a <em>rectangular carton</em> with UV inside and argues it's not a cylinder.</span></div>
+                  <div class="silly-item"><span class="si-icon">🍲</span><span>Go even broader to "any drinking vessel" and she accidentally claims UV soup bowls. Rejected immediately.</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="lbl">
+              <div class="lb-hdr"><div class="lb-av av-m">P</div><div><div class="lb-name">Priya</div><div class="lb-role">Maya's patent attorney</div></div></div>
+              <div class="lb-says">"The way we write this claim determines who you can stop. Too specific and competitors make one small change and walk around you. Too broad and the examiner rejects it outright. What's your instinct?"</div>
+              <div class="cyoa-lbl">What would you do?</div>
+              <div class="copts" id="copts-ch1">
+                <button class="cbtn" onclick="pick('ch1',0,false)">Write it very specifically — describe my exact bottle design, dimensions, and UV wavelength.</button>
+                <button class="cbtn" onclick="pick('ch1',1,false)">Write it as broadly as possible — any container that uses light to treat water.</button>
+                <button class="cbtn" onclick="pick('ch1',2,true)">Claim the category I created: a portable drinking vessel that purifies water through UV light during active use.</button>
+              </div>
+              <div class="oc" id="oc-ch1-0"><div class="oc-tag">What would have happened</div>A competitor studies Maya's public disclosure and releases an identical bottle with different dimensions and slightly different UV placement. The court finds it doesn't match her exact description. She can't stop them. Three more enter the market the same year.</div>
+              <div class="oc" id="oc-ch1-1"><div class="oc-tag">What would have happened</div>Rejected. UV sterilization technology has existed in industrial settings for decades. The examiner finds prior art immediately — Maya didn't invent UV water treatment, only a new application of it.</div>
+              <div class="oc ok" id="oc-ch1-2"><div class="oc-tag">What actually happened</div>Approved. Specific enough to be hers, broad enough to catch variations. Anyone building a UV drinking bottle now has to deal with her first — regardless of size, shape, or color.</div>
+            </div>
+            <div class="vis">
+              <div class="vl">The three zones</div>
+              <div class="tl">
+                <div class="tli"><div class="tl-dc"><div class="tl-d d-g"></div><div class="tl-ln"></div></div><div class="tl-tx"><strong>Too narrow:</strong> "a 32oz bottle with a 280nm UV emitter 2cm from the mouthpiece…" — change the size or placement and you're free.</div></div>
+                <div class="tli"><div class="tl-dc"><div class="tl-d d-g"></div><div class="tl-ln"></div></div><div class="tl-tx"><strong>Too broad:</strong> "any container that uses light to treat water…" — UV sterilization existed for decades. Rejected.</div></div>
+                <div class="tli"><div class="tl-dc"><div class="tl-d d-m"></div></div><div class="tl-tx"><strong>Just right ✓</strong> "a portable drinking vessel that purifies water through UV light during active use." New. Specific enough to be hers. Broad enough to matter.</div></div>
+              </div>
+            </div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(0)">← Back</button><button class="nav-btn" onclick="goto(2)">Next →</button></div><span class="nav-prog">2 of 8</span></div>
+          </div>
+
+          <!-- CH 3 -->
+          <div class="chapter" id="ch-2">
+            <div class="ch-hd hm"><div class="ch-num">Chapter 3 · Part 1: The Invention</div><div class="ch-title">Business takes off — and so do the knockoffs</div></div>
+            <div class="cb">
+              <p>Licensing calls came in quickly. A camping gear company wanted the UV technology in their hydration packs. A hospital supplier saw uses for sterile water delivery. Maya said yes to some, negotiated royalties with others, and turned away a few with terms she didn't like.</p>
+              <p>Then a manufacturer appeared selling something nearly identical — same UV mechanism, different logo, no license, no royalty. Maya had a decision to make.</p>
+            </div>
+            <div class="coll" id="coll-atty-ch2">
+              <button class="coll-trigger" onclick="toggleColl('coll-atty-ch2')"><span class="coll-arrow">▶</span> ⚖ What the patent attorney actually does here</button>
+              <div class="coll-body">Someone has to read the infringing product carefully, map it against Maya's specific claim language, and decide whether it's worth suing. If the competitor's product doesn't technically fall within the claim as written, Maya wastes money on a lawsuit she can't win. If it does infringe and she doesn't act, competitors notice — and more will follow.</div>
+            </div>
+            <div class="lbl">
+              <div class="lb-hdr"><div class="lb-av av-m">P</div><div><div class="lb-name">Priya</div><div class="lb-role">Maya's patent attorney</div></div></div>
+              <div class="lb-says">"I've mapped their product against our claims. It infringes. We have options — but the one we pick sends a signal to everyone else watching."</div>
+              <div class="cyoa-lbl">What would you do?</div>
+              <div class="copts" id="copts-ch2">
+                <button class="cbtn" onclick="pick('ch2',0,false)">Ignore it — they're small and litigation is expensive.</button>
+                <button class="cbtn" onclick="pick('ch2',1,false)">Reach out and offer them a licensing deal instead.</button>
+                <button class="cbtn" onclick="pick('ch2',2,true)">Sue. This is exactly what the patent exists for.</button>
+              </div>
+              <div class="oc" id="oc-ch2-0"><div class="oc-tag">What would have happened</div>Three more manufacturers enter the market within the year. They've all seen that Maya doesn't enforce her patent. There are now eight knockoffs and her price premium evaporates.</div>
+              <div class="oc" id="oc-ch2-1"><div class="oc-tag">What would have happened</div>The manufacturer drags negotiations for months — they've already sold product, so there's no urgency on their side. Maya loses revenue during the delay and sets a precedent that copying first and negotiating later is an acceptable strategy.</div>
+              <div class="oc ok" id="oc-ch2-2"><div class="oc-tag">What actually happened</div>Maya sued. The court ordered the copies off shelves and awarded damages. Word spread. Future competitors did their research before attempting to enter the market.</div>
+            </div>
+            <div class="cb" style="margin-top:.5rem">
+              <p>Meanwhile, Maya also had to pay royalties herself. The UV emitter chip inside her bottle was patented by a semiconductor company. She was collecting royalties from some people and writing checks to others at the same time. That's normal — patents don't flow in one direction.</p>
+            </div>
+            <div class="vis">
+              <div class="vl">Maya's patent position</div>
+              <div class="pc-row">
+                <div class="pc"><div class="pc-name m">Maya — HydroBeam</div><div class="pc-sub">Owns the UV bottle patent</div><div class="sr"><span class="sb sb-y">collecting royalties from licensees</span><span class="sb sb-n">paying royalties for the UV chip inside</span></div></div>
+              </div>
+            </div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(1)">← Back</button><button class="nav-btn" onclick="goto(3)">Next →</button></div><span class="nav-prog">3 of 8</span></div>
+          </div>
+
+          <!-- CH 4 -->
+          <div class="chapter" id="ch-3">
+            <div class="ch-hd hj"><div class="ch-num">Chapter 4 · Part 2: The Competition</div><div class="ch-title">Jordan sees a gap — and gets a surprise</div></div>
+            <div class="cb">
+              <p>Jordan had been following Maya's success from a distance. He wasn't envious — he was studying. Eventually he spotted something: the HydroBeam had no straw. He'd talked to enough outdoor enthusiasts to know that was a real preference.</p>
+              <p>So Jordan built a bottle that worked exactly like the HydroBeam and integrated a straw directly into the cap. It took eight months to engineer a straw that didn't compromise the UV cycle. He filed a patent on the straw integration. Approved.</p>
+              <p>He also tried to include the bottle's purple color as part of his invention. Rejected immediately — color doesn't change how something works, and you can't patent an aesthetic.</p>
+            </div>
+            <div class="coll" id="coll-atty-ch3">
+              <button class="coll-trigger" onclick="toggleColl('coll-atty-ch3')"><span class="coll-arrow">▶</span> ⚖ What Maya's attorney should have caught</button>
+              <div class="coll-body">A patent attorney doing routine monitoring would have flagged Jordan's application while it was still pending — before it was approved. Maya could have submitted prior art to the examiner, challenged the claim's scope, or accelerated her own straw development. By the time the patent granted, those options were gone.</div>
+            </div>
+            <div class="surp">
+              <div class="surp-lbl">The thing Jordan didn't see coming</div>
+              Jordan assumed his new patent meant he was free to sell his bottle. He started taking pre-orders. Then a contact in the industry pulled him aside: <em>"Maya's patent covers UV purification in drinking vessels broadly — not just her specific design. The straw doesn't get you out of it."</em>
+              <br><br>
+              Jordan looked it up. She was right. His bottle still used UV purification during active consumer use — the exact core of Maya's claim. He cancelled the pre-orders.
+            </div>
+            <div class="cb" style="margin-top:.5rem">
+              <p>Around this time, Jordan learned something about how some companies operate. They build or acquire patents and simply wait — no product, no sales, just the patent. When someone who needs it finally shows up, the patent holder has all the leverage. Jordan's straw patent was exactly that kind of asset. He decided to hold it.</p>
+            </div>
+            <div class="lbl jl">
+              <div class="lb-hdr"><div class="lb-av av-j">R</div><div><div class="lb-name">Rafael</div><div class="lb-role">Jordan's attorney</div></div></div>
+              <div class="lb-says">"You have a real patent and it's blocking Maya from something she'll want eventually. That gives you options — but the wrong move here costs you both money and leverage."</div>
+              <div class="cyoa-lbl">What would you do?</div>
+              <div class="copts" id="copts-ch3">
+                <button class="cbtn" onclick="pick('ch3',0,false)">Sell the bottle anyway and deal with a lawsuit if one comes.</button>
+                <button class="cbtn" onclick="pick('ch3',1,false)">Call Maya now — offer a license to the straw in exchange for letting me sell.</button>
+                <button class="cbtn" onclick="pick('ch3',2,true)">Wait. Don't sell, don't approach her. Let her come to me when she wants the straw.</button>
+              </div>
+              <div class="oc" id="oc-ch3-0"><div class="oc-tag">What would have happened</div>Maya's team finds the pre-order listing almost immediately and files for infringement within weeks. Jordan's pre-order revenue doesn't cover legal costs. He pulls the product and settles from a weak position.</div>
+              <div class="oc" id="oc-ch3-1"><div class="oc-tag">What would have happened</div>Maya's team listens and low-balls him. They know he can't sell without her, and they're not sure they even want a straw version yet. He gets a modest one-time payment and no ongoing leverage.</div>
+              <div class="oc ok" id="oc-ch3-2"><div class="oc-tag">What actually happened</div>Jordan waited. He held a patent on a feature Maya didn't yet realize she needed. When she eventually decided to add a straw, the negotiation started from a completely different place.</div>
+            </div>
+            <div class="vis">
+              <div class="vl">Jordan's patents — what survived, what didn't</div>
+              <div class="pr">
+                <div class="pp pp-j">✓ Built-in straw — approved</div>
+                <div class="pp pp-no">✗ Purple color — rejected</div>
+              </div>
+              <div class="ins"><div class="ins-lbl">The bind</div>Jordan owns the straw. Maya owns UV purification. Jordan's full bottle needs both. He can't sell without her — but she can't launch a straw edition without him either. She just doesn't know she wants one yet.</div>
+            </div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(2)">← Back</button><button class="nav-btn" onclick="goto(4)">Next →</button></div><span class="nav-prog">4 of 8</span></div>
+          </div>
+
+          <!-- CH 5 -->
+          <div class="chapter" id="ch-4">
+            <div class="ch-hd hb"><div class="ch-num">Chapter 5 · Part 2: The Competition</div><div class="ch-title">The standoff — and the deal</div></div>
+            <div class="cb">
+              <p>A year later, Maya's product team proposed a HydroBeam Straw Edition. Market research was strong. Priya ran a patent search before they moved forward — and found Jordan's patent.</p>
+              <p>If Maya launched, she'd infringe Jordan's patent. But Jordan's bottle still infringed hers. Both had something the other needed. Both could block the other from selling.</p>
+            </div>
+            <div class="coll" id="coll-atty-ch4">
+              <button class="coll-trigger" onclick="toggleColl('coll-atty-ch4')"><span class="coll-arrow">▶</span> ⚖ What the patent attorney actually does here</button>
+              <div class="coll-body">Two people with overlapping patents don't just shake hands and move on. Someone has to draft an agreement that spells out exactly what's licensed, what isn't, and — critically — what happens with anything either of them invents afterward. A vague cross-license leaves one side exposed to the other's future inventions. That gap comes up in the next chapter.</div>
+            </div>
+            <div class="lbl">
+              <div class="lb-hdr"><div class="lb-av av-m">P</div><div><div class="lb-name">Priya</div><div class="lb-role">Maya's patent attorney</div></div></div>
+              <div class="lb-says">"We're in a mutual block. His straw patent is real. His bottle also infringes ours. Neither of us can sell what the other has without permission. How do you want to play it?"</div>
+              <div class="cyoa-lbl">What would you do?</div>
+              <div class="copts" id="copts-ch4">
+                <button class="cbtn" onclick="pick('ch4',0,false)">Sue Jordan — his bottle has been infringing our UV patent this whole time.</button>
+                <button class="cbtn" onclick="pick('ch4',1,false)">Pay Jordan for a one-way license to use his straw patent and move on.</button>
+                <button class="cbtn" onclick="pick('ch4',2,true)">Cross-license: we each agree not to sue the other. Both can sell both versions.</button>
+              </div>
+              <div class="oc" id="oc-ch4-0"><div class="oc-tag">What would have happened</div>Jordan's attorney responds with a counterclaim — Maya's straw edition infringes his patent. Both sides are stuck in court. Neither can sell the straw bottle during litigation. Legal costs mount on both sides with no clear winner in sight.</div>
+              <div class="oc" id="oc-ch4-1"><div class="oc-tag">What would have happened</div>Jordan declines. He knows Maya needs him and holds leverage in both directions — his straw patent plus the fact that his own bottle becomes a direct competitor the moment he gets a UV license. He's not selling a one-way pass.</div>
+              <div class="oc ok" id="oc-ch4-2"><div class="oc-tag">What actually happened</div>Cross-license. Maya agrees not to sue Jordan for UV infringement. Jordan agrees not to sue Maya for the straw. Both can sell their versions. Neither owes the other royalties — the patents cancel each other out.</div>
+            </div>
+            <div class="cb" style="margin-top:.5rem">
+              <p>It might feel unfair to Maya. But Jordan's straw integration is legitimately his invention. And without both patents protecting them, twenty companies would be selling the same thing with no reason for anyone to keep innovating. The patents are what make the market worth staying in.</p>
+            </div>
+            <div class="vis">
+              <div class="vl">After the cross-license</div>
+              <div class="pc-row">
+                <div class="pc"><div class="pc-name m">Maya</div><div class="pc-sub">UV bottle + straw edition (via license)</div><div class="sr"><span class="sb sb-y">can sell straw edition</span><span class="sb sb-n">can't block Jordan's bottle</span></div></div>
+                <div class="pc"><div class="pc-name j">Jordan</div><div class="pc-sub">Straw patent + UV use (via license)</div><div class="sr"><span class="sb sb-y">can sell his bottle</span><span class="sb sb-n">can't block Maya's straw edition</span></div></div>
+              </div>
+            </div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(3)">← Back</button><button class="nav-btn" onclick="goto(5)">Next →</button></div><span class="nav-prog">5 of 8</span></div>
+          </div>
+
+          <!-- CH 6 -->
+          <div class="chapter" id="ch-5">
+            <div class="ch-hd hb"><div class="ch-num">Chapter 6 · Part 2: The Competition</div><div class="ch-title">The cycle repeats</div></div>
+            <div class="cb">
+              <p>The cross-license covered what existed when both parties signed it. It said nothing about what either of them might invent afterward.</p>
+              <p>Maya's team added a button to the bottle that plays music through a small built-in speaker. The combination — UV bottle, straw, and music button — was its own new patentable invention. She filed and got it.</p>
+              <p>Jordan was locked out again. The cross-license didn't give him rights to anything Maya built after the deal was signed. If he wanted to sell a bottle with a music button, he'd need to go back to Maya — the same position he was in before they ever made a deal. Same cycle. Different feature.</p>
+            </div>
+            <div class="lbl jl">
+              <div class="lb-hdr"><div class="lb-av av-j">R</div><div><div class="lb-name">Rafael</div><div class="lb-role">Jordan's attorney</div></div></div>
+              <div class="lb-says">"She's moved again. You have three real options here — but each one leads somewhere different. This isn't just about the music button. It's about what kind of player you want to be in this market."</div>
+              <div class="cyoa-lbl">What would Jordan do?</div>
+              <div class="copts" id="copts-ch5">
+                <button class="cbtn" onclick="pick('ch5',0,'mid')">Go head to head. License the music button and compete directly. I'm not walking away from filtered water.</button>
+                <button class="cbtn" onclick="pick('ch5',1,false)">Move on. Find a new product category with a different competitor entirely.</button>
+                <button class="cbtn" onclick="pick('ch5',2,'mid')">Don't build anything new. Just sit on the straw patent and collect royalties from anyone who uses it.</button>
+              </div>
+              <div class="oc mid" id="oc-ch5-0"><div class="oc-tag">What this leads to</div>Jordan licenses the music button and competes directly. Neither backs down — they keep one-upping each other on features, price, and design. It's expensive and exhausting, but they become the two dominant brands in UV water filtration. Consumers get better products every year. The market belongs to both of them, and nobody else can catch up.</div>
+              <div class="oc" id="oc-ch5-1"><div class="oc-tag">What this leads to</div>Jordan walks away from filtered water and starts fresh in a different product category with a different competitor — someone who might react to him very differently than Maya did. What happens there is its own story. In the HydroBeam market, his departure leaves a vacuum that other copycats quickly fill. Maya wins the category, but faces a messier field than before.</div>
+              <div class="oc mid" id="oc-ch5-2"><div class="oc-tag">What this leads to</div>Jordan doesn't build anything. He just holds the straw patent and waits for others to use it — then sends licensing letters. He's making money without making anything. Sound familiar? He's become exactly what's about to happen to Maya, just on a smaller scale. Jordan's arc, for now, ends here.</div>
+            </div>
+            <div class="vis">
+              <div class="vl">Patents on the board</div>
+              <div class="pr">
+                <div class="pp pp-m">💧 UV bottle — Maya</div>
+                <div class="pp pp-j">⤴ Built-in straw — Jordan</div>
+                <div class="pp pp-m">♫ Music button — Maya</div>
+              </div>
+              <div class="ins"><div class="ins-lbl">The pattern</div>Every time Maya invents something new, Jordan faces the same question: pay for a license, compete on something different, or sit still. The cross-license only covered the past. The future belongs to whoever keeps moving.</div>
+            </div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(4)">← Back</button><button class="nav-btn" onclick="goto(6)">Next →</button></div><span class="nav-prog">6 of 8</span></div>
+          </div>
+
+          <!-- CH 7 -->
+          <div class="chapter" id="ch-6">
+            <div class="ch-hd ht"><div class="ch-num">Chapter 7 · Part 3: The Outside World</div><div class="ch-title">Someone Maya has never heard of</div></div>
+            <div class="cb">
+              <p>Maya's music button skips to the next song when you press and hold it for two seconds. Simple, intuitive, useful. She didn't think twice about it.</p>
+              <p>Then a letter arrived from a company called Holdwell IP Group. Maya had never heard of them. They had never made a product — any product. They existed entirely to hold patents and send letters like this one.</p>
+              <p>Holdwell held a patent on <em>"a user interface control that initiates a secondary function when depressed and maintained for a predetermined duration."</em> In plain language: a button that does something different when you hold it down. They claimed Maya's music skip feature fell squarely inside it.</p>
+            </div>
+            <div class="tbox">
+              <div class="tbox-lbl">This wasn't just about water bottles</div>
+              Holdwell had sent similar letters to dozens of companies — and won most of them without ever going to court. A children's toy company had their glow-in-the-dark flashlight recalled after settling — the light activated on a press-and-hold. A kitchen appliance brand paid out over a coffee maker that brewed a second cup strength when you held the button. A car accessories company settled over a dashcam that started loop-recording when you held the save button. A fitness tracker startup — ten employees, first product — received a letter the same week they launched. They paid. They had no idea they had other options. None of these companies were doing anything unusual. Press-and-hold is everywhere. That's exactly why the patent was valuable.
+            </div>
+            <div class="cb" style="margin-top:.5rem">
+              <p>The math was simple on Holdwell's end. The cost to defend a patent lawsuit can run into the tens or hundreds of thousands of dollars before you ever get to trial. Holdwell's licensing fee was a fraction of that. Most companies paid just to make it stop — not because they believed they had done anything wrong.</p>
+              <p>Now they were coming for the HydroBeam music button.</p>
+            </div>
+            <div class="coll" id="coll-atty-ch6">
+              <button class="coll-trigger" onclick="toggleColl('coll-atty-ch6')"><span class="coll-arrow">▶</span> ⚖ What the patent attorney actually does here</button>
+              <div class="coll-body">This is where the attorney's value is most visible. Holdwell is counting on Maya not knowing she has options beyond paying. Most targets just pay. A patent attorney can evaluate whether the patent is actually valid, whether Maya's implementation truly falls within the claim, and what strategic responses are available — including ones that could threaten Holdwell's entire portfolio, not just this one case.</div>
+            </div>
+            <div class="lbl">
+              <div class="lb-hdr"><div class="lb-av av-m">P</div><div><div class="lb-name">Priya</div><div class="lb-role">Maya's patent attorney</div></div></div>
+              <div class="lb-says">"Before you do anything — don't pay and don't respond directly. Their patent may not even be valid. And how you respond in the first 30 days shapes every option you have left."</div>
+              <div class="cyoa-lbl">What would you do?</div>
+              <div class="copts" id="copts-ch6">
+                <button class="cbtn" onclick="pickTroll(0)">Pay the licensing fee. It's cheaper than a lawsuit and I just want this over.</button>
+                <button class="cbtn" onclick="pickTroll(1)">Tell them to prove it in court. I'm not paying a company that's never made anything.</button>
+                <button class="cbtn" onclick="pickTroll(2)">Talk to Priya first. Understand every option before responding.</button>
+              </div>
+              <div class="oc" id="oc-ch6-0">
+                <div class="oc-tag">What happens</div>
+                The payment goes through. Holdwell logs Maya as a payer. It validates their patent in their own records and signals she'll pay when pushed. The music button stays on the market — for now. But when the next product ships, another letter may follow. And competitors who licensed at a lower rate can undercut her pricing. The problem didn't go away. It was deferred.
+              </div>
+              <div class="oc" id="oc-ch6-1">
+                <div class="oc-tag">What happens</div>
+                Litigation begins. Legal costs start mounting immediately — filings, discovery, attorney hours. Holdwell has done this before and has a litigation budget built for exactly this. Maya is now defending on their terms, on their timeline. Without a clear strategy going in, the pressure to settle mounts quickly. Continue to Chapter 8 to see what the options look like from inside a fight.
+                <div class="continue-prompt show" style="margin-top:.75rem">
+                  <strong>→ Chapter 8</strong> follows Maya through this path and the choices she faces mid-fight.
+                </div>
+              </div>
+              <div class="oc ok" id="oc-ch6-2">
+                <div class="oc-tag">What happens</div>
+                Priya starts by reviewing Holdwell's patent carefully — looking for weaknesses, prior art, and whether Maya's implementation actually falls within the claim. Maya doesn't respond to the letter yet. This buys time and keeps options open. Continue to Chapter 8 to see what Priya finds and what Maya decides to do with it.
+                <div class="continue-prompt show" style="margin-top:.75rem">
+                  <strong>→ Chapter 8</strong> follows the investigation and Maya's decision on how to challenge.
+                </div>
+              </div>
+            </div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(5)">← Back</button><button class="nav-btn" onclick="goto(7)">Next →</button></div><span class="nav-prog">7 of 8</span></div>
+          </div>
+
+          <!-- CH 8 -->
+          <div class="chapter" id="ch-7">
+            <div class="ch-hd ht"><div class="ch-num">Chapter 8 · Part 3: The Outside World</div><div class="ch-title">What happens next</div></div>
+            <div class="cb">
+              <p>Priya reviewed Holdwell's patent from the beginning — not the summary, the actual claim language. And she found something.</p>
+              <p>The patent had been granted despite the existence of earlier technology that worked almost identically. Push-and-hold interactions had appeared in industrial equipment manuals years before Holdwell's filing date. The examiner had missed it. This was prior art — evidence that the invention wasn't new when Holdwell claimed it was, which would mean the patent should never have been granted in the first place.</p>
+              <p>Maya had more options than she realized. The question was which one to use.</p>
+            </div>
+            <div class="coll" id="coll-atty-ch7">
+              <button class="coll-trigger" onclick="toggleColl('coll-atty-ch7')"><span class="coll-arrow">▶</span> ⚖ What the patent attorney actually does here</button>
+              <div class="coll-body">Finding prior art is only the beginning. An attorney decides whether that prior art is strong enough to survive scrutiny, which forum to use to challenge the patent, how aggressive to be, and whether to combine a challenge with a negotiation. Filing an IPR without a strategy can provoke Holdwell into accelerating litigation before the review is complete. Timing and sequencing matter as much as the legal argument itself.</div>
+            </div>
+            <div class="lbl">
+              <div class="lb-hdr"><div class="lb-av av-m">P</div><div><div class="lb-name">Priya</div><div class="lb-role">Maya's patent attorney</div></div></div>
+              <div class="lb-says">"I found prior art they missed. Their patent may not be valid at all. That changes what we can do — but each path has tradeoffs. Here's what's actually on the table."</div>
+              <div class="cyoa-lbl">What would you do?</div>
+              <div class="copts" id="copts-ch7">
+                <button class="cbtn" onclick="pick('ch7',0,false)">Negotiate a settlement now, using the prior art as leverage to get the fee down.</button>
+                <button class="cbtn" onclick="pick('ch7',1,true)">File an inter partes review at the USPTO to formally challenge the patent's validity.</button>
+                <button class="cbtn" onclick="pick('ch7',2,false)">Redesign the button interaction so it no longer falls within Holdwell's claim, and move forward without engaging them.</button>
+              </div>
+              <div class="oc" id="oc-ch7-0"><div class="oc-tag">What happens</div>Priya uses the prior art as leverage in a settlement call. Holdwell's attorneys know the weakness exists — they just don't know how strong Maya's version is. The fee drops significantly. Maya pays a fraction of the original demand and the case closes. Faster and cheaper than litigation, but Holdwell keeps the patent and can still use it against others.</div>
+              <div class="oc ok" id="oc-ch7-1"><div class="oc-tag">What actually happened</div>Priya filed an inter partes review — a formal challenge to the patent at the USPTO, separate from any court case. The USPTO agreed to review it. Holdwell now faced the real possibility of losing the patent entirely, not just this one case. Facing that risk and the cost of defending the review, they offered a significantly reduced settlement. Maya paid a fraction of the original demand. The patent's scope was narrowed in the process, limiting what Holdwell could claim against anyone else going forward.</div>
+              <div class="oc" id="oc-ch7-2"><div class="oc-tag">What happens</div>Priya's team engineers around the claim — the button now activates on a double-tap instead of a press-and-hold. Technically outside Holdwell's patent. No payment, no litigation, no settlement. But the redesign takes four months, costs money to implement, and the new interaction is less intuitive. Maya also has to update marketing materials and manage customer confusion. She didn't lose — but she didn't win either. And she never challenged the patent, so Holdwell keeps going after others.</div>
+            </div>
+            <div class="cb" style="margin-top:.5rem">
+              <p>After the inter partes review, something shifted. Holdwell's letter-sending slowed down. Word had spread in the industry that at least one target had fought back and forced a concession. The fitness tracker startup that had paid years earlier reached out to Priya to ask if there was anything they could still do.</p>
+              <p>Maya's standing in the market came out stronger than it went in. She'd been targeted by a troll and hadn't just survived — she'd narrowed the patent that threatened her and made it harder for Holdwell to use it against anyone else. That's not a story most small companies get to tell.</p>
+            </div>
+            <div class="vis">
+              <div class="vl">Where Maya stands</div>
+              <div class="pc-row">
+                <div class="pc"><div class="pc-name m">Maya — HydroBeam</div><div class="pc-sub">End of Part 3</div><div class="sr"><span class="sb sb-y">UV bottle patent — active</span><span class="sb sb-y">Music button patent — active</span><span class="sb sb-y">Troll threat — resolved</span><span class="sb sb-n">Litigation costs — absorbed</span></div></div>
+              </div>
+              <div class="ins" style="margin-top:1rem"><div class="ins-lbl">The bigger point</div>At every turning point in this story — drafting the claim, suing the knockoff, negotiating the cross-license, facing the troll — there was a lawyer-shaped hole. Maya won most of them because she had Priya. The companies that paid Holdwell without asking questions didn't.</div>
+            </div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(6)">← Back</button><button class="nav-btn" disabled>Next →</button></div><span class="nav-prog">8 of 8</span></div>
+          </div>
+
+        </div><!-- /.chapters -->
+      </div><!-- /#swi -->
+    </div><!-- /#main -->
+  </div><!-- /#layout -->
+</div><!-- /#swo -->
+
+<script>
+var cur = 0, total = 8;
+var themes = ['maya','maya','maya','jordan','both','both','troll','troll'];
+var glows = {
+  maya:'rgba(107,95,216,.1)', jordan:'rgba(29,158,117,.1)',
+  both:'rgba(245,193,66,.1)', troll:'rgba(192,57,43,.1)'
+};
+
+function goto(n) {
+  document.getElementById('ch-'+cur).classList.remove('on');
+  document.querySelectorAll('.sb-btn')[cur].classList.remove('active');
+  cur = n;
+  document.getElementById('ch-'+cur).classList.add('on');
+  document.querySelectorAll('.sb-btn')[cur].classList.add('active');
+  var g = glows[themes[cur]];
+  document.getElementById('swo').style.setProperty('--glow-l', g);
+  document.getElementById('swo').style.setProperty('--glow-r', g);
+  document.getElementById('main').scrollTo({top:0, behavior:'smooth'});
+}
+
+function pick(id, idx, isOk) {
+  var btns = document.querySelectorAll('#copts-'+id+' .cbtn');
+  btns.forEach(function(b,i){
+    b.disabled = true;
+    if (i === idx) b.classList.add(isOk === true ? 'picked-ok' : isOk === 'mid' ? 'picked-mid' : 'picked');
+  });
+  for (var i = 0; i < 5; i++) {
+    var el = document.getElementById('oc-'+id+'-'+i);
+    if (el) el.style.display = 'none';
+  }
+  var chosen = document.getElementById('oc-'+id+'-'+idx);
+  if (chosen) chosen.style.display = 'block';
+}
+
+function pickTroll(idx) {
+  var btns = document.querySelectorAll('#copts-ch6 .cbtn');
+  btns.forEach(function(b,i){
+    b.disabled = true;
+    if (i === idx) b.classList.add(idx === 2 ? 'picked-ok' : idx === 0 ? 'picked' : 'picked-mid');
+  });
+  for (var i = 0; i < 3; i++) {
+    var el = document.getElementById('oc-ch6-'+i);
+    if (el) el.style.display = 'none';
+  }
+  var chosen = document.getElementById('oc-ch6-'+idx);
+  if (chosen) chosen.style.display = 'block';
+}
+
+function toggleColl(id) {
+  var el = document.getElementById(id);
+  var body = el.querySelector('.coll-body');
+  var btn = el.querySelector('.coll-trigger');
+  var open = body.classList.contains('open');
+  body.classList.toggle('open', !open);
+  btn.classList.toggle('open', !open);
+}
+
+function toggleRdr() {
+  document.getElementById('rdr-panel').classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+  if (!document.getElementById('rdr-anchor').contains(e.target))
+    document.getElementById('rdr-panel').classList.remove('open');
+});
+
+function setTheme(t) {
+  var swo = document.getElementById('swo');
+  swo.classList.remove('tl','ts');
+  if (t === 'light') swo.classList.add('tl');
+  if (t === 'sepia') swo.classList.add('ts');
+  setActive('theme', t);
+}
+function setSize(s) {
+  var sizes = {s:'15px', m:'18px', l:'22px'};
+  document.getElementById('swi').style.fontSize = sizes[s] || '18px';
+  setActive('size', s);
+}
+function setWidth(w) {
+  var widths = {narrow:'520px', medium:'640px', wide:'800px'};
+  document.getElementById('swi').style.maxWidth = widths[w] || '640px';
+  setActive('width', w);
+}
+function setActive(grp, val) {
+  document.querySelectorAll('.rdr-opt[data-grp="'+grp+'"]').forEach(function(b) {
+    b.classList.toggle('on', b.dataset.val === val);
+  });
+}
+</script>
