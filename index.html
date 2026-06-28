@@ -370,8 +370,6 @@
             </div>
             <div class="coll" id="coll-atty-ch1">
               <button class="coll-trigger" onclick="toggleColl('coll-atty-ch1')"><span class="coll-arrow">▶</span> ⚖ What the patent attorney actually does here</button>
-              <div class="coll-body">Finding this line is exactly the judgment call a patent attorney is trained to make. Maya knows how her bottle works — but she's not qualified to know where the legal boundary sits between "broad enough to matter" and "so broad it gets rejected." Getting it wrong in either direction costs her the protection she spent three years building.</div>
-            </div>
             <div class="coll sil" id="coll-sil-ch1">
               <button class="coll-trigger" onclick="toggleColl('coll-sil-ch1')"><span class="coll-arrow">▶</span> 🎯 What competitors might try</button>
               <div class="coll-body">
@@ -383,6 +381,7 @@
                 </div>
               </div>
             </div>
+
             <div class="lbl">
               <div class="lb-hdr"><div class="lb-av av-m">P</div><div><div class="lb-name">Priya</div><div class="lb-role">Maya's patent attorney</div></div></div>
               <div class="lb-says">"The way we write this claim determines who you can stop. Too specific and competitors make one small change and walk around you. Too broad and the examiner rejects it outright. What's your instinct?"</div>
@@ -392,10 +391,24 @@
                 <button class="cbtn" onclick="pick('ch1',1,false)">Write it as broadly as possible — any container that uses light to treat water.</button>
                 <button class="cbtn" onclick="pick('ch1',2,true)">Claim the category I created: a portable drinking vessel that purifies water through UV light during active use.</button>
               </div>
-              <div class="oc" id="oc-ch1-0"><div class="oc-tag">What would have happened</div>A competitor studies Maya's public disclosure and releases an identical bottle with different dimensions and slightly different UV placement. The court finds it doesn't match her exact description. She can't stop them. Three more enter the market the same year.</div>
-              <div class="oc" id="oc-ch1-1"><div class="oc-tag">What would have happened</div>Rejected. UV sterilization technology has existed in industrial settings for decades. The examiner finds prior art immediately — Maya didn't invent UV water treatment, only a new application of it.</div>
-              <div class="oc ok" id="oc-ch1-2"><div class="oc-tag">What actually happened</div>Approved. Specific enough to be hers, broad enough to catch variations. Anyone building a UV drinking bottle now has to deal with her first — regardless of size, shape, or color.</div>
-            </div>
+
+             <div class="lbl">
+  <div class="lb-hdr"><div class="lb-av av-m">P</div><div><div class="lb-name">Priya</div><div class="lb-role">Maya's patent attorney</div></div></div>
+  <div class="lb-says">"The way we write this claim determines who you can stop. Too specific and competitors make one small change and walk around you. Too broad and the examiner rejects it outright. How would you write it?"</div>
+  <div class="cyoa-lbl">Pick your claim language</div>
+  <div class="copts" id="copts-ch1">
+    <button class="cbtn" onclick="pick('ch1',0,false)">"Any container that holds liquid and emits UV light."</button>
+    <button class="cbtn" onclick="pick('ch1',1,false)">"A bottle that uses UV light to kill bacteria during consumption."</button>
+    <button class="cbtn" onclick="pick('ch1',2,false)">"A cylindrical vessel with UV purification."</button>
+    <button class="cbtn" onclick="pick('ch1',3,false)">"Any drinking vessel incorporating ultraviolet light technology."</button>
+    <button class="cbtn" onclick="pick('ch1',4,true)">"Portable drinking vessel that purifies water through UV light during active use."</button>
+  </div>
+  <div class="oc" id="oc-ch1-0"><div class="oc-tag">What would have happened</div>A competitor releases a UV aquarium filter. Technically holds liquid, technically emits UV light. Their lawyer sends Maya a very polite letter explaining that fish tanks are not water bottles. Your patent attorney stops returning your calls.</div>
+  <div class="oc" id="oc-ch1-1"><div class="oc-tag">What would have happened</div>A competitor releases an identical UV bottle with a timer that activates thirty seconds after you finish drinking. Technically not during consumption. Their patent attorney is extremely proud of this distinction. The court agrees.</div>
+  <div class="oc" id="oc-ch1-2"><div class="oc-tag">What would have happened</div>A startup releases the HydroSlab — a rectangular UV water brick. Sales pitch: "It's not a cylinder, we checked." They checked. The court agrees. Maya cannot stop them.</div>
+  <div class="oc" id="oc-ch1-3"><div class="oc-tag">What would have happened</div>Rejected immediately. The examiner's notes reference UV soup bowls, UV gravy boats, and one memorable UV fondue set. Maya's application is denied before lunch.</div>
+  <div class="oc ok" id="oc-ch1-4"><div class="oc-tag">What actually happened</div>Approved. Specific enough to be hers, broad enough to catch variations. Jordan reads the full patent disclosure, studies every claim, and quietly shelves his prototype.</div>
+</div>
             <div class="vis">
               <div class="vl">The three zones</div>
               <div class="tl">
@@ -643,6 +656,7 @@
               <div class="pc-row">
                 <div class="pc"><div class="pc-name m">Maya — HydroBeam</div><div class="pc-sub">End of Part 3</div><div class="sr"><span class="sb sb-y">UV bottle patent — active</span><span class="sb sb-y">Music button patent — active</span><span class="sb sb-y">Troll threat — resolved</span><span class="sb sb-n">Litigation costs — absorbed</span></div></div>
               </div>
+              <div class="ins" style="margin-top:1rem"><div class="ins-lbl">The bigger point</div>At every turning point in this story — drafting the claim, suing the knockoff, negotiating the cross-license, facing the troll — there was a lawyer-shaped hole. Maya won most of them because she had Priya. The companies that paid Holdwell without asking questions didn't.</div>
             </div>
             <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(6)">← Back</button><button class="nav-btn" disabled>Next →</button></div><span class="nav-prog">8 of 8</span></div>
           </div>
