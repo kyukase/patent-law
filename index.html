@@ -329,12 +329,13 @@
 
       <div class="sb-part">Part 2 — The Competition</div>
       <button class="sb-btn" onclick="goto(3)"><span class="sb-num">Ch 4</span>Jordan sees a gap</button>
-      <button class="sb-btn" onclick="goto(4)"><span class="sb-num">Ch 5</span>The standoff and the deal</button>
-      <button class="sb-btn" onclick="goto(5)"><span class="sb-num">Ch 6</span>The cycle repeats</button>
+      <button class="sb-btn" onclick="goto(4)"><span class="sb-num">Ch 5</span>What Jordan does with it</button>
+      <button class="sb-btn" onclick="goto(5)"><span class="sb-num">Ch 6</span>The standoff and the deal</button>
+      <button class="sb-btn" onclick="goto(6)"><span class="sb-num">Ch 7</span>The cycle repeats</button>
 
       <div class="sb-part">Part 3 — The Outside World</div>
-      <button class="sb-btn" onclick="goto(6)"><span class="sb-num">Ch 7</span>Someone Maya has never heard of</button>
-      <button class="sb-btn" onclick="goto(7)"><span class="sb-num">Ch 8</span>What happens next</button>
+      <button class="sb-btn" onclick="goto(7)"><span class="sb-num">Ch 8</span>Someone Maya has never heard of</button>
+      <button class="sb-btn" onclick="goto(8)"><span class="sb-num">Ch 9</span>What happens next</button>
     </nav>
 
     <!-- MAIN -->
@@ -347,77 +348,53 @@
             <div class="ch-hd hm"><div class="ch-num">Chapter 1 · Part 1: The Invention</div><div class="ch-title">Old classmates, different instincts</div></div>
             <div class="cb">
               <p>Maya and Jordan went to the same high school. They weren't close, but they remembered each other as the kids who always had something going on the side. Maya built things. Jordan watched what other people built and figured out how to improve them.</p>
-              <p>Years later, Maya spent three years developing the HydroBeam — a water bottle that uses UV light to purify water as you drink. When it was ready, she filed for a patent.</p>
-              <p>The USPTO approved it, but with a condition. In exchange for the patent, Maya had to publicly disclose exactly how the technology worked. Every detail becomes public record the moment the patent is granted.</p>
-              <p>That's the trade society makes with inventors: reveal your secrets instead of hoarding them, and you get 20 years of exclusive rights to sell it. Keep the secret, and you're on your own.</p>
+              <p>Years later, Maya spent three years developing the HydroBeam — a water bottle that uses UV light to purify water as you drink. The technology worked, and she decided to sell it.</p>
+              <p>UV purification wasn't a secret confined to one lab. Other companies were working on similar ideas, and the underlying science was well understood. What wasn't known was how Maya had made it work safely inside a bottle — the placement, the cycle timing, the engineering that kept the UV output high enough to purify but low enough not to harm. Now she had to decide what to do with that secret.</p>
             </div>
-            <div class="vis">
-              <div class="vl">The deal Maya made with the USPTO</div>
-              <div class="tl">
-                <div class="tli"><div class="tl-dc"><div class="tl-d d-m"></div><div class="tl-ln"></div></div><div class="tl-tx"><strong>Maya discloses everything</strong> — how the UV light works, its placement, its cycle timing. Public record, forever.</div></div>
-                <div class="tli"><div class="tl-dc"><div class="tl-d d-g"></div><div class="tl-ln"></div></div><div class="tl-tx"><strong>USPTO grants the patent</strong> — covering any bottle that purifies water through UV light during active use by the consumer.</div></div>
-                <div class="tli"><div class="tl-dc"><div class="tl-d d-m"></div></div><div class="tl-tx"><strong>Maya gets 20 years</strong> — no one can make or sell a UV-purifying water bottle without her permission.</div></div>
+            <div class="lbl">
+              <div class="lb-hdr"><div class="lb-av av-m">P</div><div><div class="lb-name">Priya</div><div class="lb-role">Maya's patent attorney</div></div></div>
+              <div class="lb-says">"You have three options. Each gives you something different — and takes something away. What matters is whether your edge is something others already know how to do, or something only you know."</div>
+              <div class="cyoa-lbl">What would you do?</div>
+              <div class="copts" id="copts-ch0">
+                <button class="cbtn" onclick="pick('ch0',0,false)">Keep it as a trade secret.</button>
+                <button class="cbtn" onclick="pick('ch0',1,false)">Publicly disclose the technology without patenting it.</button>
+                <button class="cbtn" onclick="pick('ch0',2,true)">File for a patent.</button>
               </div>
+              <div class="oc" id="oc-ch0-0"><div class="oc-tag">What would have happened</div>Trade secrets only hold as long as the secret does. UV purification wasn't obscure — competitors were already circling the same science. Within two years, a rival independently develops the same mechanism, files a patent, and Maya finds herself paying royalties on her own invention. A secret only protects you if no one else can figure it out.</div>
+              <div class="oc" id="oc-ch0-1"><div class="oc-tag">What would have happened</div>Publishing creates prior art, which stops anyone else from patenting it — but it also stops Maya. She gets no exclusive rights. Competitors can copy the design freely from day one. The move makes sense if you want to keep a technology in the commons, not if you want to build a business around it.</div>
+              <div class="oc ok" id="oc-ch0-2"><div class="oc-tag">What actually happened</div>Maya filed. In exchange for publicly disclosing exactly how the UV mechanism worked — placement, cycle timing, all of it — she received 20 years of exclusive rights. No one could make or sell a UV-purifying water bottle without her permission. The disclosure became public record, but the market was hers.</div>
             </div>
-            <div class="nav"><div class="nav-btns"><button class="nav-btn" disabled>← Back</button><button class="nav-btn" onclick="goto(1)">Next →</button></div><span class="nav-prog">1 of 8</span></div>
+            <div class="coll" id="coll-context-ch0">
+              <button class="coll-trigger" onclick="toggleColl('coll-context-ch0')"><span class="coll-arrow">▶</span> 💡 Why does society offer this deal at all?</button>
+              <div class="coll-body">Patents exist because of a bargain society makes with inventors: reveal your secrets instead of hoarding them, and you get 20 years of exclusive rights to sell it. Without that deal, inventors would keep everything hidden — and the knowledge would die with them or leak out slowly, if at all. Disclosure is the price. Exclusivity is the reward. It's why Maya's filing, once approved, became public record that anyone could read — and why Jordan could study it so carefully.</div>
+            </div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" disabled>← Back</button><button class="nav-btn" onclick="goto(1)">Next →</button></div><span class="nav-prog">1 of 9</span></div>
           </div>
 
           <!-- CH 2 -->
           <div class="chapter" id="ch-1">
             <div class="ch-hd hm"><div class="ch-num">Chapter 2 · Part 1: The Invention</div><div class="ch-title">The fence has to be the right size</div></div>
             <div class="cb">
-              <p>Before Maya filed, she had to decide how broadly to write her patent claim. Too narrow, and competitors walk right around her. Too broad, and the USPTO rejects it. The goal is to claim the category she created — not just her specific product.</p>
+              <p>Before Maya filed, she had to decide how broadly to write her patent claim. This decision would determine how much of the market she actually controlled. Get it right, and she owned the category she invented. Get it wrong — in either direction — and the patent either gets rejected before it's granted or becomes easy to work around once it is.</p>
             </div>
-            <div class="coll" id="coll-atty-ch1">
-              <button class="coll-trigger" onclick="toggleColl('coll-atty-ch1')"><span class="coll-arrow">▶</span> ⚖ What the patent attorney actually does here</button>
-            <div class="coll sil" id="coll-sil-ch1">
-              <button class="coll-trigger" onclick="toggleColl('coll-sil-ch1')"><span class="coll-arrow">▶</span> 🎯 What competitors might try</button>
-              <div class="coll-body">
-                <div class="silly-items">
-                  <div class="silly-item"><span class="si-icon">🥛</span><span>A reusable <em>glass</em> with a UV chip. Not technically a "bottle." Does Maya's patent catch it? Depends on how she wrote "vessel."</span></div>
-                  <div class="silly-item"><span class="si-icon">🫖</span><span>A thermos-shaped container. Still not obviously a "bottle." Someone could argue it in court.</span></div>
-                  <div class="silly-item"><span class="si-icon">📐</span><span>Maya could broaden to "cylinder" — but someone sells a <em>rectangular carton</em> with UV inside and argues it's not a cylinder.</span></div>
-                  <div class="silly-item"><span class="si-icon">🍲</span><span>Go even broader to "any drinking vessel" and she accidentally claims UV soup bowls. Rejected immediately.</span></div>
-                </div>
-              </div>
-            </div>
-
             <div class="lbl">
               <div class="lb-hdr"><div class="lb-av av-m">P</div><div><div class="lb-name">Priya</div><div class="lb-role">Maya's patent attorney</div></div></div>
-              <div class="lb-says">"The way we write this claim determines who you can stop. Too specific and competitors make one small change and walk around you. Too broad and the examiner rejects it outright. What's your instinct?"</div>
-              <div class="cyoa-lbl">What would you do?</div>
+              <div class="lb-says">"The way we write this claim determines who you can stop. Too specific and competitors make one small change and walk around you. Too broad and the examiner rejects it outright. How would you write it?"</div>
+              <div class="cyoa-lbl">Pick your claim language</div>
               <div class="copts" id="copts-ch1">
-                <button class="cbtn" onclick="pick('ch1',0,false)">Write it very specifically — describe my exact bottle design, dimensions, and UV wavelength.</button>
-                <button class="cbtn" onclick="pick('ch1',1,false)">Write it as broadly as possible — any container that uses light to treat water.</button>
-                <button class="cbtn" onclick="pick('ch1',2,true)">Claim the category I created: a portable drinking vessel that purifies water through UV light during active use.</button>
+                <button class="cbtn" onclick="pick('ch1',0,false)">Any container that holds liquid and emits UV light.</button>
+                <button class="cbtn" onclick="pick('ch1',1,false)">A bottle that uses UV light to kill bacteria during consumption.</button>
+                <button class="cbtn" onclick="pick('ch1',2,false)">A cylindrical vessel with UV purification.</button>
+                <button class="cbtn" onclick="pick('ch1',3,false)">Any drinking vessel incorporating ultraviolet light technology.</button>
+                <button class="cbtn" onclick="pick('ch1',4,true)">A portable drinking vessel that purifies water through UV light during active use.</button>
               </div>
-
-             <div class="lbl">
-  <div class="lb-hdr"><div class="lb-av av-m">P</div><div><div class="lb-name">Priya</div><div class="lb-role">Maya's patent attorney</div></div></div>
-  <div class="lb-says">"The way we write this claim determines who you can stop. Too specific and competitors make one small change and walk around you. Too broad and the examiner rejects it outright. How would you write it?"</div>
-  <div class="cyoa-lbl">Pick your claim language</div>
-  <div class="copts" id="copts-ch1">
-    <button class="cbtn" onclick="pick('ch1',0,false)">"Any container that holds liquid and emits UV light."</button>
-    <button class="cbtn" onclick="pick('ch1',1,false)">"A bottle that uses UV light to kill bacteria during consumption."</button>
-    <button class="cbtn" onclick="pick('ch1',2,false)">"A cylindrical vessel with UV purification."</button>
-    <button class="cbtn" onclick="pick('ch1',3,false)">"Any drinking vessel incorporating ultraviolet light technology."</button>
-    <button class="cbtn" onclick="pick('ch1',4,true)">"Portable drinking vessel that purifies water through UV light during active use."</button>
-  </div>
-  <div class="oc" id="oc-ch1-0"><div class="oc-tag">What would have happened</div>A competitor releases a UV aquarium filter. Technically holds liquid, technically emits UV light. Their lawyer sends Maya a very polite letter explaining that fish tanks are not water bottles. Your patent attorney stops returning your calls.</div>
-  <div class="oc" id="oc-ch1-1"><div class="oc-tag">What would have happened</div>A competitor releases an identical UV bottle with a timer that activates thirty seconds after you finish drinking. Technically not during consumption. Their patent attorney is extremely proud of this distinction. The court agrees.</div>
-  <div class="oc" id="oc-ch1-2"><div class="oc-tag">What would have happened</div>A startup releases the HydroSlab — a rectangular UV water brick. Sales pitch: "It's not a cylinder, we checked." They checked. The court agrees. Maya cannot stop them.</div>
-  <div class="oc" id="oc-ch1-3"><div class="oc-tag">What would have happened</div>Rejected immediately. The examiner's notes reference UV soup bowls, UV gravy boats, and one memorable UV fondue set. Maya's application is denied before lunch.</div>
-  <div class="oc ok" id="oc-ch1-4"><div class="oc-tag">What actually happened</div>Approved. Specific enough to be hers, broad enough to catch variations. Jordan reads the full patent disclosure, studies every claim, and quietly shelves his prototype.</div>
-</div>
-            <div class="vis">
-              <div class="vl">The three zones</div>
-              <div class="tl">
-                <div class="tli"><div class="tl-dc"><div class="tl-d d-g"></div><div class="tl-ln"></div></div><div class="tl-tx"><strong>Too narrow:</strong> "a 32oz bottle with a 280nm UV emitter 2cm from the mouthpiece…" — change the size or placement and you're free.</div></div>
-                <div class="tli"><div class="tl-dc"><div class="tl-d d-g"></div><div class="tl-ln"></div></div><div class="tl-tx"><strong>Too broad:</strong> "any container that uses light to treat water…" — UV sterilization existed for decades. Rejected.</div></div>
-                <div class="tli"><div class="tl-dc"><div class="tl-d d-m"></div></div><div class="tl-tx"><strong>Just right ✓</strong> "a portable drinking vessel that purifies water through UV light during active use." New. Specific enough to be hers. Broad enough to matter.</div></div>
-              </div>
+              <div class="oc" id="oc-ch1-0"><div class="oc-tag">What would have happened</div>A competitor releases a UV aquarium filter. Technically holds liquid, technically emits UV. Their argument: fish tanks are not water bottles. The court agrees.</div>
+              <div class="oc" id="oc-ch1-1"><div class="oc-tag">What would have happened</div>A competitor's UV bottle has a timer that activates thirty seconds after you finish drinking. Technically not during consumption. The court agrees.</div>
+              <div class="oc" id="oc-ch1-2"><div class="oc-tag">What would have happened</div>A startup releases the HydroSlab — a rectangular UV water brick. Their argument: it's not a cylinder, they checked. The court agrees.</div>
+              <div class="oc" id="oc-ch1-3"><div class="oc-tag">What would have happened</div>Rejected immediately. The examiner's notes reference UV soup bowls, UV gravy boats, and a UV fondue set. Application denied before lunch.</div>
+              <div class="oc ok" id="oc-ch1-4"><div class="oc-tag">What actually happened</div>Approved. The examiner found it specific enough to be novel and broad enough to be meaningful. The claim survived examination intact — and because it describes what the product does rather than exactly how it's built, there's no obvious way for a competitor to make a minor tweak and escape it.</div>
             </div>
-            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(0)">← Back</button><button class="nav-btn" onclick="goto(2)">Next →</button></div><span class="nav-prog">2 of 8</span></div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(0)">← Back</button><button class="nav-btn" onclick="goto(2)">Next →</button></div><span class="nav-prog">2 of 9</span></div>
           </div>
 
           <!-- CH 3 -->
@@ -453,16 +430,30 @@
                 <div class="pc"><div class="pc-name m">Maya — HydroBeam</div><div class="pc-sub">Owns the UV bottle patent</div><div class="sr"><span class="sb sb-y">collecting royalties from licensees</span><span class="sb sb-n">paying royalties for the UV chip inside</span></div></div>
               </div>
             </div>
-            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(1)">← Back</button><button class="nav-btn" onclick="goto(3)">Next →</button></div><span class="nav-prog">3 of 8</span></div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(1)">← Back</button><button class="nav-btn" onclick="goto(3)">Next →</button></div><span class="nav-prog">3 of 9</span></div>
           </div>
 
           <!-- CH 4 -->
           <div class="chapter" id="ch-3">
-            <div class="ch-hd hj"><div class="ch-num">Chapter 4 · Part 2: The Competition</div><div class="ch-title">Jordan sees a gap — and gets a surprise</div></div>
+            <div class="ch-hd hj"><div class="ch-num">Chapter 4 · Part 2: The Competition</div><div class="ch-title">Jordan sees a gap</div></div>
             <div class="cb">
               <p>Jordan had been following Maya's success from a distance. He wasn't envious — he was studying. Eventually he spotted something: the HydroBeam had no straw. He'd talked to enough outdoor enthusiasts to know that was a real preference.</p>
-              <p>So Jordan built a bottle that worked exactly like the HydroBeam and integrated a straw directly into the cap. It took eight months to engineer a straw that didn't compromise the UV cycle. He filed a patent on the straw integration. Approved.</p>
-              <p>He also tried to include the bottle's purple color as part of his invention. Rejected immediately — color doesn't change how something works, and you can't patent an aesthetic.</p>
+              <p>So Jordan spent eight months engineering a bottle that worked exactly like the HydroBeam with a straw built directly into the cap — one that didn't compromise the UV cycle. He had something worth filing on. The question was what.</p>
+            </div>
+            <div class="lbl jl">
+              <div class="lb-hdr"><div class="lb-av av-j">R</div><div><div class="lb-name">Rafael</div><div class="lb-role">Jordan's attorney</div></div></div>
+              <div class="lb-says">"You've got a real invention here. But what you file on determines whether you actually own anything. Not everything is patentable — and filing on the wrong thing wastes time and tips off competitors. What do you claim?"</div>
+              <div class="cyoa-lbl">What does Jordan patent?</div>
+              <div class="copts" id="copts-ch3">
+                <button class="cbtn" onclick="pick('ch3',0,false)">The bottle's purple color — it's distinctive and part of the brand.</button>
+                <button class="cbtn" onclick="pick('ch3',1,false)">The larger bottle size — it holds more water than the HydroBeam.</button>
+                <button class="cbtn" onclick="pick('ch3',2,false)">The UV purification mechanism itself — the core technology that makes it work.</button>
+                <button class="cbtn" onclick="pick('ch3',3,true)">The built-in straw integration — the specific engineering that lets the straw work with the UV cycle.</button>
+              </div>
+              <div class="oc" id="oc-ch3-0"><div class="oc-tag">What would have happened</div>Rejected immediately. Color is an aesthetic — it doesn't affect how anything functions. You can't patent a look, only an invention. The examiner closes the file before lunch.</div>
+              <div class="oc" id="oc-ch3-1"><div class="oc-tag">What would have happened</div>Rejected. Size alone isn't an invention — making something bigger isn't a novel technical contribution. Competitors could simply change the dimensions and walk away free.</div>
+              <div class="oc" id="oc-ch3-2"><div class="oc-tag">What would have happened</div>Rejected. Maya's patent already covers UV purification in portable drinking vessels. Jordan can't patent something that's already been claimed. Filing on it would be a waste of time and alert Maya's attorneys to exactly what he's working on.</div>
+              <div class="oc ok" id="oc-ch3-3"><div class="oc-tag">What actually happened</div>Approved. The straw integration was genuinely new — a specific engineering solution for running a straw through a UV purification system without disrupting the cycle. Jordan owned that. But it came with a surprise he hadn't planned for.</div>
             </div>
             <div class="coll" id="coll-atty-ch3">
               <button class="coll-trigger" onclick="toggleColl('coll-atty-ch3')"><span class="coll-arrow">▶</span> ⚖ What Maya's attorney should have caught</button>
@@ -474,36 +465,48 @@
               <br><br>
               Jordan looked it up. She was right. His bottle still used UV purification during active consumer use — the exact core of Maya's claim. He cancelled the pre-orders.
             </div>
-            <div class="cb" style="margin-top:.5rem">
-              <p>Around this time, Jordan learned something about how some companies operate. They build or acquire patents and simply wait — no product, no sales, just the patent. When someone who needs it finally shows up, the patent holder has all the leverage. Jordan's straw patent was exactly that kind of asset. He decided to hold it.</p>
-            </div>
-            <div class="lbl jl">
-              <div class="lb-hdr"><div class="lb-av av-j">R</div><div><div class="lb-name">Rafael</div><div class="lb-role">Jordan's attorney</div></div></div>
-              <div class="lb-says">"You have a real patent and it's blocking Maya from something she'll want eventually. That gives you options — but the wrong move here costs you both money and leverage."</div>
-              <div class="cyoa-lbl">What would you do?</div>
-              <div class="copts" id="copts-ch3">
-                <button class="cbtn" onclick="pick('ch3',0,false)">Sell the bottle anyway and deal with a lawsuit if one comes.</button>
-                <button class="cbtn" onclick="pick('ch3',1,false)">Call Maya now — offer a license to the straw in exchange for letting me sell.</button>
-                <button class="cbtn" onclick="pick('ch3',2,true)">Wait. Don't sell, don't approach her. Let her come to me when she wants the straw.</button>
-              </div>
-              <div class="oc" id="oc-ch3-0"><div class="oc-tag">What would have happened</div>Maya's team finds the pre-order listing almost immediately and files for infringement within weeks. Jordan's pre-order revenue doesn't cover legal costs. He pulls the product and settles from a weak position.</div>
-              <div class="oc" id="oc-ch3-1"><div class="oc-tag">What would have happened</div>Maya's team listens and low-balls him. They know he can't sell without her, and they're not sure they even want a straw version yet. He gets a modest one-time payment and no ongoing leverage.</div>
-              <div class="oc ok" id="oc-ch3-2"><div class="oc-tag">What actually happened</div>Jordan waited. He held a patent on a feature Maya didn't yet realize she needed. When she eventually decided to add a straw, the negotiation started from a completely different place.</div>
-            </div>
             <div class="vis">
               <div class="vl">Jordan's patents — what survived, what didn't</div>
               <div class="pr">
                 <div class="pp pp-j">✓ Built-in straw — approved</div>
                 <div class="pp pp-no">✗ Purple color — rejected</div>
+                <div class="pp pp-no">✗ Larger size — rejected</div>
+                <div class="pp pp-no">✗ UV purification — already claimed</div>
               </div>
-              <div class="ins"><div class="ins-lbl">The bind</div>Jordan owns the straw. Maya owns UV purification. Jordan's full bottle needs both. He can't sell without her — but she can't launch a straw edition without him either. She just doesn't know she wants one yet.</div>
             </div>
-            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(2)">← Back</button><button class="nav-btn" onclick="goto(4)">Next →</button></div><span class="nav-prog">4 of 8</span></div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(2)">← Back</button><button class="nav-btn" onclick="goto(4)">Next →</button></div><span class="nav-prog">4 of 9</span></div>
           </div>
 
           <!-- CH 5 -->
           <div class="chapter" id="ch-4">
-            <div class="ch-hd hb"><div class="ch-num">Chapter 5 · Part 2: The Competition</div><div class="ch-title">The standoff — and the deal</div></div>
+            <div class="ch-hd hj"><div class="ch-num">Chapter 5 · Part 2: The Competition</div><div class="ch-title">What Jordan does with it</div></div>
+            <div class="cb">
+              <p>Jordan had a real patent — but he also had a problem. His bottle still used Maya's UV purification mechanism. He couldn't sell it without infringing her claim. His patent was an asset, but only if he played it right.</p>
+              <p>Around this time, Jordan learned something about how some companies operate. They build or acquire patents and simply wait — no product, no sales, just the patent. When someone who needs it finally shows up, the patent holder has all the leverage. Jordan's straw patent was exactly that kind of asset.</p>
+            </div>
+            <div class="lbl jl">
+              <div class="lb-hdr"><div class="lb-av av-j">R</div><div><div class="lb-name">Rafael</div><div class="lb-role">Jordan's attorney</div></div></div>
+              <div class="lb-says">"You have a real patent and it's blocking Maya from something she'll want eventually. That gives you options — but the wrong move here costs you both money and leverage."</div>
+              <div class="cyoa-lbl">What would you do?</div>
+              <div class="copts" id="copts-ch4b">
+                <button class="cbtn" onclick="pick('ch4b',0,false)">Sell the bottle anyway and deal with a lawsuit if one comes.</button>
+                <button class="cbtn" onclick="pick('ch4b',1,false)">Call Maya now — offer a license to the straw in exchange for letting me sell.</button>
+                <button class="cbtn" onclick="pick('ch4b',2,true)">Wait. Don't sell, don't approach her. Let her come to me when she wants the straw.</button>
+              </div>
+              <div class="oc" id="oc-ch4b-0"><div class="oc-tag">What would have happened</div>Maya's team finds the pre-order listing almost immediately and files for infringement within weeks. Jordan's pre-order revenue doesn't cover legal costs. He pulls the product and settles from a weak position.</div>
+              <div class="oc" id="oc-ch4b-1"><div class="oc-tag">What would have happened</div>Maya's team listens and low-balls him. They know he can't sell without her, and they're not sure they even want a straw version yet. He gets a modest one-time payment and no ongoing leverage.</div>
+              <div class="oc ok" id="oc-ch4b-2"><div class="oc-tag">What actually happened</div>Jordan waited. He held a patent on a feature Maya didn't yet realize she needed. When she eventually decided to add a straw, the negotiation started from a completely different place.</div>
+            </div>
+            <div class="vis">
+              <div class="vl">Jordan's position</div>
+              <div class="ins"><div class="ins-lbl">The bind</div>Jordan owns the straw. Maya owns UV purification. Jordan's full bottle needs both. He can't sell without her — but she can't launch a straw edition without him either. She just doesn't know she wants one yet.</div>
+            </div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(3)">← Back</button><button class="nav-btn" onclick="goto(5)">Next →</button></div><span class="nav-prog">5 of 9</span></div>
+          </div>
+
+          <!-- CH 6 -->
+          <div class="chapter" id="ch-5">
+            <div class="ch-hd hb"><div class="ch-num">Chapter 6 · Part 2: The Competition</div><div class="ch-title">The standoff — and the deal</div></div>
             <div class="cb">
               <p>A year later, Maya's product team proposed a HydroBeam Straw Edition. Market research was strong. Priya ran a patent search before they moved forward — and found Jordan's patent.</p>
               <p>If Maya launched, she'd infringe Jordan's patent. But Jordan's bottle still infringed hers. Both had something the other needed. Both could block the other from selling.</p>
@@ -535,12 +538,12 @@
                 <div class="pc"><div class="pc-name j">Jordan</div><div class="pc-sub">Straw patent + UV use (via license)</div><div class="sr"><span class="sb sb-y">can sell his bottle</span><span class="sb sb-n">can't block Maya's straw edition</span></div></div>
               </div>
             </div>
-            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(3)">← Back</button><button class="nav-btn" onclick="goto(5)">Next →</button></div><span class="nav-prog">5 of 8</span></div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(4)">← Back</button><button class="nav-btn" onclick="goto(6)">Next →</button></div><span class="nav-prog">6 of 9</span></div>
           </div>
 
-          <!-- CH 6 -->
-          <div class="chapter" id="ch-5">
-            <div class="ch-hd hb"><div class="ch-num">Chapter 6 · Part 2: The Competition</div><div class="ch-title">The cycle repeats</div></div>
+          <!-- CH 7 -->
+          <div class="chapter" id="ch-6">
+            <div class="ch-hd hb"><div class="ch-num">Chapter 7 · Part 2: The Competition</div><div class="ch-title">The cycle repeats</div></div>
             <div class="cb">
               <p>The cross-license covered what existed when both parties signed it. It said nothing about what either of them might invent afterward.</p>
               <p>Maya's team added a button to the bottle that plays music through a small built-in speaker. The combination — UV bottle, straw, and music button — was its own new patentable invention. She filed and got it.</p>
@@ -568,12 +571,12 @@
               </div>
               <div class="ins"><div class="ins-lbl">The pattern</div>Every time Maya invents something new, Jordan faces the same question: pay for a license, compete on something different, or sit still. The cross-license only covered the past. The future belongs to whoever keeps moving.</div>
             </div>
-            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(4)">← Back</button><button class="nav-btn" onclick="goto(6)">Next →</button></div><span class="nav-prog">6 of 8</span></div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(5)">← Back</button><button class="nav-btn" onclick="goto(7)">Next →</button></div><span class="nav-prog">7 of 9</span></div>
           </div>
 
-          <!-- CH 7 -->
-          <div class="chapter" id="ch-6">
-            <div class="ch-hd ht"><div class="ch-num">Chapter 7 · Part 3: The Outside World</div><div class="ch-title">Someone Maya has never heard of</div></div>
+          <!-- CH 8 -->
+          <div class="chapter" id="ch-7">
+            <div class="ch-hd ht"><div class="ch-num">Chapter 8 · Part 3: The Outside World</div><div class="ch-title">Someone Maya has never heard of</div></div>
             <div class="cb">
               <p>Maya's music button skips to the next song when you press and hold it for two seconds. Simple, intuitive, useful. She didn't think twice about it.</p>
               <p>Then a letter arrived from a company called Holdwell IP Group. Maya had never heard of them. They had never made a product — any product. They existed entirely to hold patents and send letters like this one.</p>
@@ -619,12 +622,12 @@
                 </div>
               </div>
             </div>
-            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(5)">← Back</button><button class="nav-btn" onclick="goto(7)">Next →</button></div><span class="nav-prog">7 of 8</span></div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(6)">← Back</button><button class="nav-btn" onclick="goto(8)">Next →</button></div><span class="nav-prog">8 of 9</span></div>
           </div>
 
-          <!-- CH 8 -->
-          <div class="chapter" id="ch-7">
-            <div class="ch-hd ht"><div class="ch-num">Chapter 8 · Part 3: The Outside World</div><div class="ch-title">What happens next</div></div>
+          <!-- CH 9 -->
+          <div class="chapter" id="ch-8">
+            <div class="ch-hd ht"><div class="ch-num">Chapter 9 · Part 3: The Outside World</div><div class="ch-title">What happens next</div></div>
             <div class="cb">
               <p>Priya reviewed Holdwell's patent from the beginning — not the summary, the actual claim language. And she found something.</p>
               <p>The patent had been granted despite the existence of earlier technology that worked almost identically. Push-and-hold interactions had appeared in industrial equipment manuals years before Holdwell's filing date. The examiner had missed it. This was prior art — evidence that the invention wasn't new when Holdwell claimed it was, which would mean the patent should never have been granted in the first place.</p>
@@ -658,7 +661,7 @@
               </div>
               <div class="ins" style="margin-top:1rem"><div class="ins-lbl">The bigger point</div>At every turning point in this story — drafting the claim, suing the knockoff, negotiating the cross-license, facing the troll — there was a lawyer-shaped hole. Maya won most of them because she had Priya. The companies that paid Holdwell without asking questions didn't.</div>
             </div>
-            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(6)">← Back</button><button class="nav-btn" disabled>Next →</button></div><span class="nav-prog">8 of 8</span></div>
+            <div class="nav"><div class="nav-btns"><button class="nav-btn" onclick="goto(7)">← Back</button><button class="nav-btn" disabled>Next →</button></div><span class="nav-prog">9 of 9</span></div>
           </div>
 
         </div><!-- /.chapters -->
@@ -668,8 +671,8 @@
 </div><!-- /#swo -->
 
 <script>
-var cur = 0, total = 8;
-var themes = ['maya','maya','maya','jordan','both','both','troll','troll'];
+var cur = 0, total = 9;
+var themes = ['maya','maya','maya','jordan','jordan','both','both','troll','troll'];
 var glows = {
   maya:'rgba(107,95,216,.1)', jordan:'rgba(29,158,117,.1)',
   both:'rgba(245,193,66,.1)', troll:'rgba(192,57,43,.1)'
